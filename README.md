@@ -4,8 +4,6 @@ A modern, responsive, editorial-style law firm website built with **React, TypeS
 
 The project is designed as a professional legal-services website with a strong editorial visual identity, responsive layouts, attorney/team profiles, immigration services, testimonials, articles, videos, careers, and contact pages.
 
----
-
 ## ✨ Features
 
 * Modern editorial-style law firm design
@@ -32,8 +30,6 @@ The project is designed as a professional legal-services website with a strong e
 * Compatible with GitHub and Vercel deployment
 * Compatible with static hosting such as Hostinger
 
----
-
 ## 🛠️ Technology Stack
 
 | Technology      | Purpose                                 |
@@ -49,16 +45,11 @@ The project is designed as a professional legal-services website with a strong e
 | ESLint          | Code quality                            |
 | Bun/npm         | Package management                      |
 
----
-
 ## 📁 Project Structure
 
 ```text
 Editorial-Canvas/
 │
-├── .gitignore
-├── .prettierignore
-├── .prettierrc
 ├── AGENTS.md
 ├── README.md
 ├── bun.lock
@@ -175,8 +166,6 @@ Editorial-Canvas/
         └── ...
 ```
 
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -202,8 +191,6 @@ Check npm:
 npm --version
 ```
 
----
-
 ## 📦 Installation
 
 Clone the repository:
@@ -224,8 +211,6 @@ Install dependencies:
 npm install
 ```
 
----
-
 ## 💻 Development
 
 Start the Vite development server:
@@ -241,8 +226,6 @@ http://localhost:5173
 ```
 
 Open that URL in your browser.
-
----
 
 ## 🏗️ Production Build
 
@@ -271,8 +254,6 @@ dist/
 └── ...
 ```
 
----
-
 ## 🔎 Preview the Production Build
 
 After building:
@@ -282,8 +263,6 @@ npm run preview
 ```
 
 This allows you to test the production build locally before deploying it.
-
----
 
 # 🖼️ Local Images
 
@@ -326,8 +305,6 @@ Example:
 />
 ```
 
----
-
 # 🎨 Logo Configuration
 
 The primary website header is implemented in:
@@ -351,8 +328,6 @@ public/akula-logo-light.png
 ```
 
 This prevents the production website from depending on unavailable external asset paths.
-
----
 
 # 👥 Attorney and Team Images
 
@@ -390,8 +365,6 @@ and:
 ```text
 src/routes/
 ```
-
----
 
 # 🧭 Routing
 
@@ -432,8 +405,6 @@ The generated route tree is located at:
 src/routeTree.gen.ts
 ```
 
----
-
 # 🧩 Reusable Components
 
 The main reusable editorial components are located at:
@@ -461,8 +432,6 @@ Important components include:
 | `SideRail.tsx`         | Editorial side navigation            |
 | `Prose.tsx`            | Long-form content styling            |
 
----
-
 # 📝 Content Management
 
 Static website content is organized under:
@@ -483,8 +452,6 @@ src/data/videos.ts
 ```
 
 This separation makes it easier to update website content without modifying the overall component structure.
-
----
 
 # 🗄️ Supabase
 
@@ -511,52 +478,6 @@ If the application requires Supabase functionality in production, configure the 
 
 Never commit private API keys or secrets to GitHub.
 
----
-
-# 🔐 Environment Variables
-
-If environment variables are required, create:
-
-```text
-.env.local
-```
-
-Example:
-
-```env
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
-Do **not** commit `.env` or `.env.local`.
-
-They should remain in `.gitignore`.
-
-For Vercel, add environment variables through:
-
-**Vercel Dashboard → Project → Settings → Environment Variables**
-
----
-
-# 🧹 Formatting
-
-The project includes Prettier configuration:
-
-```text
-.prettierrc
-.prettierignore
-```
-
-Format the project with:
-
-```bash
-npx prettier --write .
-```
-
-Files excluded by `.prettierignore` will not be formatted.
-
----
-
 # 🔍 Linting
 
 Run the project's linting command if configured:
@@ -570,8 +491,6 @@ If the project does not expose a lint script, you can run ESLint directly:
 ```bash
 npx eslint .
 ```
-
----
 
 # 🐙 GitHub
 
@@ -611,8 +530,6 @@ Push the project:
 git push -u origin main
 ```
 
----
-
 # 🔄 Updating the GitHub Repository
 
 After making changes:
@@ -624,8 +541,6 @@ git push
 ```
 
 If the repository is connected to Vercel, the new commit can automatically trigger a new deployment.
-
----
 
 # ▲ Vercel Deployment
 
@@ -659,8 +574,6 @@ npm install
 
 Vercel automatically installs dependencies, builds the project, and publishes the generated `dist/` directory.
 
----
-
 # 🌐 Vercel Deployment Flow
 
 ```text
@@ -686,8 +599,6 @@ dist/
 Live Website
 ```
 
----
-
 # 🖥️ Hostinger Deployment
 
 The project can also be deployed to a static hosting provider such as Hostinger.
@@ -707,58 +618,6 @@ dist/
 Upload the **contents of `dist/`** to the appropriate public web directory on your Hostinger account.
 
 Do not upload the entire source project when the Hostinger deployment is intended to serve the compiled static website.
-
----
-
-# 📌 Important Git Files
-
-The repository contains:
-
-### `.gitignore`
-
-Prevents unnecessary or sensitive files from being committed.
-
-Recommended entries:
-
-```gitignore
-node_modules/
-dist/
-.env
-.env.local
-.DS_Store
-```
-
-### `.prettierignore`
-
-Prevents selected files from being formatted by Prettier.
-
-### `.prettierrc`
-
-Contains the project's Prettier formatting preferences.
-
----
-
-# 🚫 Files Not to Commit
-
-Do not commit:
-
-```text
-node_modules/
-dist/
-.env
-.env.local
-```
-
-Also avoid committing:
-
-```text
-*.log
-.DS_Store
-```
-
-unless there is a specific reason to do so.
-
----
 
 # 🐛 Troubleshooting
 
@@ -784,8 +643,6 @@ Then reference it as:
 
 Do not use obsolete external asset paths.
 
----
-
 ## Build fails
 
 Run:
@@ -801,8 +658,6 @@ npm run build
 ```
 
 Read the first error shown in the terminal and resolve that error before addressing later errors.
-
----
 
 ## Vercel build fails
 
@@ -822,8 +677,6 @@ package.json
 
 is located in the repository root.
 
----
-
 ## Blank page after deployment
 
 Check:
@@ -842,8 +695,6 @@ npm run build
 npm run preview
 ```
 
----
-
 # 📱 Responsive Design
 
 The website is designed to support:
@@ -854,8 +705,6 @@ The website is designed to support:
 * Mobile phones
 
 Responsive styling is primarily handled through Tailwind CSS and the project's reusable components.
-
----
 
 # 🎯 Project Goals
 
@@ -872,15 +721,11 @@ The project focuses on creating a professional digital presence for a modern law
 * Video content
 * Contact and conversion-focused sections
 
----
-
 # 📄 License
 
 This project is intended for the website/application represented by this repository.
 
 Unless otherwise specified by the repository owner, the source code, branding, images, logos, photographs, written content, and other project assets should not be redistributed or reused without appropriate permission.
-
----
 
 # 👨‍💻 Development Workflow
 
@@ -968,8 +813,6 @@ Hostinger
 Production Website
 ```
 
----
-
 ## 🚀 Quick Start
 
 For experienced developers, the entire setup can be reduced to:
@@ -992,7 +835,5 @@ The production files will be generated in:
 ```text
 dist/
 ```
-
----
 
 **Built with React + TypeScript + Vite + Tailwind CSS.**
