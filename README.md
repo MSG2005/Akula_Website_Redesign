@@ -1,4 +1,4 @@
-# Akula Law Website Redesign
+# Akula Law — Responsive Website Redesign
 
 A modern, responsive, editorial-style law firm website built with **React, TypeScript, Vite, Tailwind CSS, and TanStack Router**.
 
