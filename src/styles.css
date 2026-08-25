@@ -1,0 +1,309 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --font-sans: var(--font-grotesk);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-dark: var(--dark);
+  --color-dark-foreground: var(--dark-foreground);
+  --color-dark-border: var(--dark-border);
+  --color-blue: var(--blue);
+  --color-blue-dark: var(--blue-dark);
+  --color-gray: var(--gray);
+}
+
+:root {
+  --font-grotesk: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --radius: 4px;
+
+  --background: oklch(0.983 0.007 84); /* #FCFAF5 cream */
+  --foreground: oklch(0.205 0 0); /* #1A1A1A */
+  --ink: oklch(0.205 0 0);
+  --dark: oklch(0.205 0 0); /* #1A1A1A */
+  --dark-foreground: oklch(0.985 0.005 84);
+  --dark-border: oklch(1 0 0 / 20%);
+  --blue: oklch(0.771 0.135 62.5); /* #F89E4C primary accent */
+  --blue-dark: oklch(0.706 0.147 55); /* deeper coral-orange */
+  --gray: oklch(0.55 0.01 70);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.205 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.205 0 0);
+  --primary: var(--blue);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.948 0.012 84);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.948 0.012 84);
+  --muted-foreground: oklch(0.55 0.01 70);
+  --accent: oklch(0.82 0.16 158); /* #2DC678 green callout */
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.205 0 0 / 14%);
+  --input: oklch(0.205 0 0 / 20%);
+  --ring: var(--blue);
+  --shadow-card: 4px 4px 0 var(--ink);
+}
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-grotesk);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--blue);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
+}
+
+/* ---------- Editorial type scale ---------- */
+
+@utility ed-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  @media (min-width: 768px) {
+    padding-inline: 28px;
+  }
+  @media (min-width: 1200px) {
+    padding-inline: 34px;
+  }
+  @media (min-width: 1600px) {
+    padding-inline: 48px;
+  }
+}
+
+@utility ed-hero {
+  font-size: clamp(38px, 6.5vw, 78px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+@utility ed-section-title {
+  font-size: clamp(30px, 3.8vw, 50px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+@utility ed-display {
+  font-size: clamp(28px, 4.6vw, 60px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+@utility ed-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+@utility ed-body {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@utility ed-label {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@utility ed-nav {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@utility ed-rule {
+  border-top: 1px solid var(--color-border);
+}
+
+@utility ed-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes ed-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ed-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@utility ed-enter {
+  animation: ed-fade-up 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@utility ed-pop-in {
+  animation: ed-pop 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@utility ed-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ---------- Graphic-corporate surfaces ---------- */
+
+@utility ed-card {
+  background: var(--card);
+  border: 1px solid var(--ink);
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  &:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@utility ed-pill {
+  border-radius: 999px;
+}
+
+@utility ed-accent-block {
+  background: var(--blue);
+  color: var(--ink);
+}
+
+@utility ed-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 46px;
+  padding-inline: 1.5rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition:
+    color 220ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    background-color 220ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  &:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--ink);
+  }
+}
+
+/* ---------- Stats marquee ---------- */
+
+@keyframes ed-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@utility ed-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: ed-marquee 38s linear infinite;
+}
+
+@utility ed-marquee-mask {
+  overflow: hidden;
+  &:hover .ed-marquee-track { animation-play-state: paused; }
+}
